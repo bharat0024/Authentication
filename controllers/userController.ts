@@ -75,5 +75,7 @@ class userController {
       res.status(500).json({ error: "Server error..!!" });
     }
   }
+  static async forgotPassword(req: Request, res: Response) {}
+  static async forgotEmail(req: Request, res: Response) {}
 }
 export default userController;
