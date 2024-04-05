@@ -6,11 +6,13 @@ import {
   registerValidator,
 } from "../validators/userValidation";
 import userController from "../controllers/userController";
+import path from "path";
 
 export const authRoute: Router = express.Router();
 
-// authRoute.get("/register", registerValidator, userController.register);
-// authRoute.get("/login", loginValidator, userController.login);
+authRoute.get("/", (req: Request, res: Response): void => {
+  res.sendFile(path.resolve("views/Authentication/auth.html"));
+});
 authRoute.post("/register", registerValidator, userController.register);
 authRoute.post("/login", loginValidator, userController.login);
 authRoute.put(
