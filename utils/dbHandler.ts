@@ -1,7 +1,7 @@
 import { QueryResult, ResultSetHeader, RowDataPacket } from "mysql2";
 import connection from "../config/db";
 import { UserDetail } from "../models/user";
-import { parse } from "path";
+
 export class DBHandler {
   static async findOne(email: string): Promise<any> {
     try {
@@ -18,7 +18,6 @@ export class DBHandler {
   }
   static async insert(UserInfo: UserDetail): Promise<any> {
     try {
-      let filed = Object.keys(UserInfo).join(",");
       let query = `insert into users ( id,firstName,email,password,role_id,activate_link) values (
         '${UserInfo.id}',
         '${UserInfo.firstName}',
